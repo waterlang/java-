@@ -1,0 +1,86 @@
+public enum Logger {
+    INFO,
+    DEBUG;
+}
+
+注解类
+@Retention( RetentionPolicy.RUNTIME )
+@Target( ElementType.METHOD )
+public @interface LogMethodCall {
+    Logger logLevel() default Logger.INFO;
+}
+
+
+实体类
+public class Person {
+    // will use the default log level (INFO)
+    @LogMethodCall
+    public void foo( int a ) {
+        System.out.println( "foo! " + a );
+    }
+
+    @LogMethodCall( logLevel = Logger.DEBUG )
+    public void bar( int b ) {
+        System.out.println( "bar! " + b );
+    }
+
+}
+
+通过反射调用注解
+public class Utils {
+    public static void log( Object o, String methodName ) {
+
+        // gets the object class
+        Class klass = o.getClass();
+
+        // iterate over its methods
+        for ( Method m : klass.getMethods() ) {
+
+            // verify if the method is the wanted one
+            if ( m.getName().equals( methodName ) ) {
+
+                // yes, it is
+                // so, iterate over its annotations
+                for ( Annotation a : m.getAnnotations() ) {
+
+                    // verify if it is a LogMethodCall annotation
+                    if ( a instanceof LogMethodCall ) {
+
+                        // yes, it is
+                        // so, cast it
+                        LogMethodCall lmc = ( LogMethodCall ) a;
+
+                        // verify the log level
+                        switch ( lmc.logLevel() ) {
+                            case INFO:
+                                System.out.println( "performing info log for \"" + m.getName() + "\" method" );
+                                break;
+                            case DEBUG:
+                                System.out.println( "performing debug log for \"" + m.getName() + "\" method" );
+                                break;
+                        }
+
+                    }
+                }
+
+                // method encountered, so the loop can be break
+                break;
+
+            }
+
+        }
+    }
+}
+
+测试类
+
+public class Test {
+
+    public static void main(String[] args) {
+        Person p = new Person();
+        Utils.log( p, "foo" );
+        p.foo( 2 );
+        Utils.log( p, "bar" );
+        p.bar( 3 );
+    }
+}
