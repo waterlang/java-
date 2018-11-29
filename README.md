@@ -1,8 +1,10 @@
 # java-
 
-###java-JVM
+###java
 <p>
 <a href="https://github.com/waterlang/java-/issues/2">java之静态分派和动态分派</a>
+
+<a href="https://github.com/waterlang/java-/issues/2">使用java8的ConcurrentHashMap来做本地堆cache</a>
 <p>
 
 ###java-算法
