@@ -14,7 +14,7 @@
   
 # spring security
 <p>
-<a href="https://www.jianshu.com/p/fe1194ca8ecdr">WebSecurityConfigurerAdapter与ResourceServerConfigurerAdapter </a>
+<a href="https://www.jianshu.com/p/fe1194ca8ecd">WebSecurityConfigurerAdapter与ResourceServerConfigurerAdapter </a>
 <p>
 
 # http
