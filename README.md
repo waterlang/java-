@@ -12,9 +12,9 @@
 <a href="https://github.com/waterlang/java-/issues/1">二叉树遍历 </a>
 
 
-###java-swagger
+###spring security
 <p>
-<a href="https://github.com/waterlang/java-/tree/master/swagger">swagger使用 </a>
+<a href="https://www.jianshu.com/p/fe1194ca8ecdr">WebSecurityConfigurerAdapter与ResourceServerConfigurerAdapter </a>
 <p>
 
 ###http
