@@ -21,3 +21,8 @@
 <p>
 <a href="https://github.com/waterlang/java-/issues/3">http和keep-alive</a>
 <p><p>
+
+# 其他
+<p>
+<a href="https://www.jianshu.com/p/693bd2ee19b1">jackson根据属性名动态序列化对象字段</a>
+<p><p>
